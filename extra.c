@@ -63,6 +63,7 @@ void description(void)
 void printstar(void)
 {
 	int i = 0;
+
 	write(1, "\n\t\t\t", 5);
 
 	while (i < 75)

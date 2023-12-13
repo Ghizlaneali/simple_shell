@@ -10,6 +10,7 @@
 int exitor(char *line[])
 {
 	int i = 0;
+
 	if (line[1] == NULL)
 	{
 		exit(EXIT_SUCCESS); }

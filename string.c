@@ -11,6 +11,7 @@ int getstr(char *str)
 {
 	char **line;
 	size_t siz = 0;
+
 	signal(SIGINT, sigintHandler);
 	line = malloc(24);
 	if (!line)
@@ -127,15 +128,15 @@ char **strbrk(char *line, char c)
 	{
 		perror("Couldn't Allocate");
 		return (NULL); }
-		while (line[i] != '\0')
-	{
-	if (j > 124)
-	{
-		tmp = realloc(array, sizeof(*array) * (i + 4));
-		if (tmp == NULL)
+	while (line[i] != '\0')
 		{
-			perror("Couldn't Reallocate");
-			return (NULL); }
+		if (j > 124)
+		{
+			tmp = realloc(array, sizeof(*array) * (i + 4));
+			if (tmp == NULL)
+			{
+				perror("Couldn't Reallocate");
+				return (NULL); }
 		else
 		{
 			array = tmp; }
