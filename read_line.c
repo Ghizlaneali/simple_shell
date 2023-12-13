@@ -53,7 +53,7 @@ int _getline(char **line, size_t *len)
 	line[0] = malloc(25);
 	if (!line[0])
 		return (-1);
-		*len = 0;
+	*len = 0;
 
 	while (line[0][*len - 1] != '\n')
 	{
@@ -64,16 +64,18 @@ int _getline(char **line, size_t *len)
 		{
 			tmp = realloc(line[0], limit + 10);
 			if (tmp)
+			{
 				line[0] = tmp;
+			}
 			else
+			{
 				perror("Reallocation");
 				limit += 10;
+			}
 		}
 	}
-
 	return (*len);
 }
-
 /**
  * echoer - a function to echo back any text you gave it
  * @line: an array of command and arguments
